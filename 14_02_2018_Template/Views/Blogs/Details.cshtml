@@ -1,0 +1,50 @@
+﻿@model _14_02_2018_Template.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+  
+
+<div>
+    <h4>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+        Details Blog
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.blog_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blog_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blog_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blog_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blog_img) 
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Model.blog_img" width="500" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.category_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.category_name)
+        </dd>
+
+    </dl>
+</div>
+

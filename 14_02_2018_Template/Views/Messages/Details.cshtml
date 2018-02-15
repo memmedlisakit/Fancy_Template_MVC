@@ -1,0 +1,49 @@
+﻿@model _14_02_2018_Template.Models.Message
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <h4>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+        Details Message
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.message_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.message_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.message_website_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message_website_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.message_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message_content)
+        </dd>
+
+    </dl>
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Service_Area_Contents>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ 
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Service Contents
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Service Contents Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.service_contents_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.service_contents_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.service_contents_icon)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.service_contents_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.service_contents_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.service_contents_icon)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.service_contents_title</td>
+                            <td> @item.service_contents_content</td>
+                            <td> <i class="@item.service_contents_icon" style="font-size:25px; color:cadetblue"></i></td> 
+                            <td>
+                                <a href="/Service_Area_Contents/Edit/@item.service_contents_id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Service_Area_Contents/Details/@item.service_contents_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Service_Area_Contents/Delete/@item.service_contents_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+

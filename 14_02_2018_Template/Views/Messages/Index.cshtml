@@ -1,0 +1,65 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Message>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h2>
+    Messages
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Message Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.message_name)</th>
+                        <th>@Html.DisplayNameFor(model => model.message_email)</th>
+                        <th>@Html.DisplayNameFor(model => model.message_website_url)</th>
+                        <th>@Html.DisplayNameFor(model => model.message_content)</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.message_name)</th>
+                        <th>@Html.DisplayNameFor(model => model.message_email)</th>
+                        <th>@Html.DisplayNameFor(model => model.message_website_url)</th>
+                        <th>@Html.DisplayNameFor(model => model.message_content)</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.message_name</td>
+                            <td> @item.message_email</td>
+                            <td> @item.message_website_url</td>
+                            <td> @item.message_content</td> 
+                            <td>
+                                <a href="/Messages/Details/@item.message_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Messages/Delete/@item.message_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+
+

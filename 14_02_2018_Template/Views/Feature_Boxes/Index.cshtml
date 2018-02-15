@@ -1,0 +1,72 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Feature_Boxes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Featured Boxs
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Featured Boxs Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_icon)</th>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_url)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_icon)</th>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.feature_boxes_url)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.feature_boxes_title</td>
+                            <td> <i class="@item.feature_boxes_icon" style="font-size:25px;color:cadetblue"></i></td>
+                            <td> @item.feature_boxes_content.Substring(0,20)...</td>
+                            <td> @item.feature_boxes_url</td>
+                            <td>
+                                <a href="/Feature_Boxes/Edit/@item.feature_boxes_id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Feature_Boxes/Details/@item.feature_boxes_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Feature_Boxes/Delete/@item.feature_boxes_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>

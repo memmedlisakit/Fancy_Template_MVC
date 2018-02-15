@@ -1,0 +1,68 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Menu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Menu
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Blog Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.menu_name)</th>
+                        <th>@Html.DisplayNameFor(model => model.menu_link)</th>
+                        <th>@Html.DisplayNameFor(model => model.menu_title)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.menu_name)</th>
+                        <th>@Html.DisplayNameFor(model => model.menu_link)</th>
+                        <th>@Html.DisplayNameFor(model => model.menu_title)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.menu_name</td>
+                            <td> @item.menu_link</td>
+                            <td> @item.menu_title</td>
+                            <td>
+                                <a href="/Menus/Edit/@item.id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Menus/Details/@item.id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Menus/Delete/@item.id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+
+
+
+

@@ -1,0 +1,57 @@
+﻿@model _14_02_2018_Template.Models.Testimonials_Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <h4>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+        Details Testimonial Slider
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.testimonials_slider_icon)
+        </dt>
+
+        <dd>
+            <i class="@Model.testimonials_slider_icon" style="font-size:25px; color:cadetblue"></i>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testimonials_slider_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testimonials_slider_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testimonials_slider_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testimonials_slider_author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.testimonials_slider_position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testimonials_slider_position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testimonials_slider_img)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Model.testimonials_slider_img" width="500" />
+        </dd>
+
+    </dl>
+</div>

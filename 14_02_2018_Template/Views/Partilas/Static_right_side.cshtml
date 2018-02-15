@@ -1,0 +1,33 @@
+﻿@using _14_02_2018_Template.Models;
+
+@model Blog_Category_ViewModel
+
+
+@{string date =  DateTime.Now.ToString("MMMM  dd, yyyy");}
+<div class="right_sidebar_area">
+    <aside class="right_widget r_news_widget">
+        <div class="r_w_title">
+            <h3>Recent News</h3>
+        </div>
+        <div class="news_inner">
+            @foreach (var item in Model._blogs)
+            {
+                <div class="news_item">
+                    <a href="@Url.Action("Index", "Static", new { id=item.blog_id})"><h4>@item.blog_title</h4></a>
+                    <a href="#"><h6>@date</h6></a>
+                </div>
+            } 
+        </div>
+    </aside>
+    <aside class="right_widget r_cat_widget">
+        <div class="r_w_title">
+            <h3>Categories</h3>
+        </div>
+        <ul>
+            @foreach (var item in Model._categories)
+            {
+                <li><a href="#">@item.category_name</a></li>
+            }
+        </ul>
+    </aside>
+</div>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Testimonials_Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+ 
+
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Testimonilas Slider
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i>  Testimonilas Slider Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_icon)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_author)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_position)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_img)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_icon)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_author)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_position)</th>
+                        <th>@Html.DisplayNameFor(model => model.testimonials_slider_img)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> <i class="@item.testimonials_slider_icon" style="font-size:25px; color:cadetblue"></i></td> 
+                            <td> @item.testimonials_slider_content.Substring(0,50)...</td>
+                            <td> @item.testimonials_slider_author</td>
+                            <td> @item.testimonials_slider_position</td>
+                            <td><img src="~/Uploads/@item.testimonials_slider_img" width="100" /></td>
+                            <td>
+                                <a href="/Testimonials_Slider/Edit/@item.testimonials_slider_id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Testimonials_Slider/Details/@item.testimonials_slider_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Testimonials_Slider/Delete/@item.testimonials_slider_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+

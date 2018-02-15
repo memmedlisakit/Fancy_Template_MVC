@@ -1,0 +1,71 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Industry>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Industries
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Industries Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.industries_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.industries_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.industries_img)</th>
+                        <th>@Html.DisplayNameFor(model => model.industries_url)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.industries_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.industries_content)</th>
+                        <th>@Html.DisplayNameFor(model => model.industries_img)</th>
+                        <th>@Html.DisplayNameFor(model => model.industries_url)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.industries_title</td>
+                            <td> @item.industries_content.Substring(0, 20)...</td>
+                            <td><img src="~/Uploads/@item.industries_img" width="100" /></td>
+
+                            <td> @item.industries_url</td>
+                            <td>
+                                <a href="/Industries/Edit/@item.industries_id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Industries/Details/@item.industries_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Industries/Delete/@item.industries_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>

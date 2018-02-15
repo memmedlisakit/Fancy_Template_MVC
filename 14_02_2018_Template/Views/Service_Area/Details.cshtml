@@ -1,0 +1,48 @@
+﻿@model _14_02_2018_Template.Models.Service_Area
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ <div>
+    <h4>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+        Details Service Area
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.service_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.service_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.service_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.service_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.service_content_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.service_content_url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.service_img)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Model.service_img" width="500" />
+        </dd>
+
+
+    </dl>
+</div>

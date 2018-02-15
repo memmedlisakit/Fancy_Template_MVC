@@ -1,0 +1,81 @@
+﻿@model _14_02_2018_Template.Models.Testimonials_Slider
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+ 
+
+
+@using (Html.BeginForm("Edit", "Testimonials_Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+            Edit Testimonal Slider
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.testimonials_slider_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.testimonials_slider_icon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 icon_contain">
+                <i onclick="getClass(this)" class="fas fa-pencil-alt"></i>
+                <i onclick="getClass(this)" class="fas fa-tv"></i>
+                <i onclick="getClass(this)" class="fas fa-bullhorn"></i>
+                <i onclick="getClass(this)" class="fas fa-phone-square"></i>
+                <i onclick="getClass(this)" class="fas fa-camera-retro"></i>
+                <i onclick="getClass(this)" class="fas fa-car"></i>
+                <i onclick="getClass(this)" class="fas fa-id-card"></i>
+                <i onclick="getClass(this)" class="fas fa-bell"></i>
+                <i onclick="getClass(this)" class="fas fa-bus"></i>
+                <i onclick="getClass(this)" class="fas fa-chess-rook"></i>
+                <i onclick="getClass(this)" class="fas fa-quote-right"></i>
+                <i onclick="getClass(this)" class="fas fa-quote-left"></i>
+                @Html.EditorFor(model => model.testimonials_slider_icon, new { htmlAttributes = new { @class = "form-control icon_name", style = "visibility:hidden", required = "required" } })
+                @Html.ValidationMessageFor(model => model.testimonials_slider_icon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.testimonials_slider_content, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.testimonials_slider_content, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.testimonials_slider_content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.testimonials_slider_author, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.testimonials_slider_author, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.testimonials_slider_author, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.testimonials_slider_position, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.testimonials_slider_position, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.testimonials_slider_position, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.testimonials_slider_img, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.testimonials_slider_img, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                @Html.ValidationMessageFor(model => model.testimonials_slider_img, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

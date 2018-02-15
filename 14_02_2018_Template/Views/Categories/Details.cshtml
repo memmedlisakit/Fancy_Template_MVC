@@ -1,0 +1,25 @@
+﻿@model _14_02_2018_Template.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <h4>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+        Details Category
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.category_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category_name)
+        </dd> 
+    </dl>
+</div>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ 
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Slider
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Blog Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.slider_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.slider_first_url)</th>
+                        <th>@Html.DisplayNameFor(model => model.slider_second_url)</th>
+                        <th>@Html.DisplayNameFor(model => model.slider_img)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.slider_title)</th>
+                        <th>@Html.DisplayNameFor(model => model.slider_first_url)</th>
+                        <th>@Html.DisplayNameFor(model => model.slider_second_url)</th>
+                        <th>@Html.DisplayNameFor(model => model.slider_img)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.slider_title</td>
+                            <td> @item.slider_first_url</td>
+                            <td> @item.slider_second_url</td>
+                            <td><img src="~/Uploads/@item.slider_img" width="100" /></td>
+                            <td>
+                                <a href="/Sliders/Edit/@item.slider_id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Sliders/Details/@item.slider_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Sliders/Delete/@item.slider_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+
+

@@ -1,0 +1,201 @@
+﻿@using _14_02_2018_Template.Models
+
+@model ViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<!--================Slider Area =================-->
+@Html.Action("Slider", "Partilas")
+<!--================End Slider Area =================-->
+
+
+<section class="creative_feature_area">
+    <div class="container">
+        <div class="c_feature_box">
+            <div class="row">
+                @foreach (var item in Model._boxs)
+                {
+                    <div class="col-lg-4">
+                        <div class="c_box_item">
+                            <a href="@item.feature_boxes_url"><h4><i class="@item.feature_boxes_icon" aria-hidden="true"></i> @item.feature_boxes_title</h4></a>
+                            <p>@item.feature_boxes_content</p>
+                        </div>
+                    </div>
+                } 
+            </div>
+        </div>
+        <div class="digital_feature p_100">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d_feature_text">
+                        <div class="main_title">
+                            <h2>@Model._blogs[Model._blogs.Count-1].blog_title</h2>
+                        </div>
+                        <p>@Model._blogs[Model._blogs.Count - 1].blog_content.Substring(0,300)...</p>
+                        
+                        <a class="read_btn" href="#">Read more</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d_feature_img">
+                        <img src="~/Uploads/@Model._blogs[Model._blogs.Count-1].blog_img"  width="100%" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="industries_area">
+    <div class="left_indus">
+        <div class="indus_img">
+            <img src="~/Uploads/@Model._industry.industries_img" alt="">
+        </div>
+    </div>
+    <div class="right_indus">
+        <div class="indus_text">
+            <div class="main_title">
+                <h2>@Model._industry.industries_title.Substring(0,15)..</h2>
+                <p>@Model._industry.industries_content.Substring(0,150)..</p>
+            </div>
+            <div class="our_skill_inner">
+                <div class="single_skill">
+                    <h3>Website Design</h3>
+                    <div class="progress" data-value="90">
+                        <div class="progress-bar" style="width: 90%;">
+                            <div class="progress_parcent"><span class="counter">90</span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_skill">
+                    <h3>Brand Strategy</h3>
+                    <div class="progress" data-value="95">
+                        <div class="progress-bar" style="width: 95%;">
+                            <div class="progress_parcent"><span class="counter">95</span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_skill">
+                    <h3>Digital Marketing</h3>
+                    <div class="progress" data-value="85">
+                        <div class="progress-bar" style="width: 85%;">
+                            <div class="progress_parcent"><span class="counter">85</span>%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_skill">
+                    <h3>Website Development</h3>
+                    <div class="progress" data-value="90">
+                        <div class="progress-bar" style="width: 90%;">
+                            <div class="progress_parcent"><span class="counter">90</span>%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="read_btn" href="#">Work with us</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="service_area" style="background-position: 50% 56px; background: url(../../Uploads/@Model._service_area.First().service_img) no-repeat fixed center center;">
+    <div class="container">
+        <div class="center_title">
+            <h2>@Model._service_area.First().service_title</h2>
+            <p>@Model._service_area.First().service_content</p>
+        </div>
+        <div class="row service_item_inner">
+            @foreach (var item in Model._contents)
+            {
+                <div class="col-lg-4">
+                    <div class="service_item">
+                        <i style="font-size:35px; color:#20d497;" class="@item.service_contents_icon"></i>
+                        <h4>@item.service_contents_title</h4>
+                        <p>@item.service_contents_content</p>
+                    </div>
+                </div>
+            } 
+        </div>
+    </div>
+</section>
+
+
+<section class="testimonials_area p_100">
+    <div class="container">
+        <div class="testimonials_slider owl-carousel">
+            @foreach (var item in Model._testimintial_slider)
+            {
+               <div class="item">
+                    <div class="media">
+                        <img class="d-flex rounded-circle" src="~/Uploads/@item.testimonials_slider_img" style="width:20px">
+                        <div class="media-body">
+                        <i class="@item.testimonials_slider_icon"></i>
+                            <p>@item.testimonials_slider_content</p>
+                            <h4><a href="#">@item.testimonials_slider_author</a> @item.testimonials_slider_position</h4>
+                        </div>
+                    </div>
+                </div>
+            } 
+        </div>
+    </div>
+</section>
+
+
+<section class="project_area" style="background-position: 50% -104px; background: url(../../Uploads/@Model._service_area.Last().service_img) no-repeat fixed center center;">
+    <div class="container">
+        <div class="project_inner">
+            <div class="center_title">
+                <h2>@Model._service_area.Last().service_title</h2>
+                <p>@Model._service_area.Last().service_content</p>
+            </div>
+            <a class="tp_btn" href="@Model._service_area.Last().service_content_url">WORK WITH US</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="latest_news_area p_100">
+    <div class="container">
+        <div class="b_center_title">
+            <h2>Latest News</h2>
+            <p>We Are A Creative Digital Agency. Focused on Growing Brands Online</p>
+        </div>
+        <div class="l_news_inner">
+            <div class="row">
+                @for (int i = 0; i < Model._blogs.Count-1; i++)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="l_news_item">
+                            <div class="l_news_img">
+                            <a href="#">
+                                <img class="img-fluid" src="~/Uploads/@Model._blogs[i].blog_img">
+                                </a>
+                            </div>
+                            <div class="l_news_content">
+                                @if (Model._blogs[i].blog_title.Length > 25)
+                                {
+                                    <a href="@Url.Action("Index","Static",new { id= Model._blogs[i].blog_id})"><h4>@Model._blogs[i].blog_title.Substring(0,25)...</h4></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Index","Static",new { id= Model._blogs[i].blog_id})"><h4>@Model._blogs[i].blog_title</h4></a>
+                                }
+                                
+                                @if (Model._blogs[i].blog_content.Length > 150)
+                                {
+                                    <p>@Model._blogs[i].blog_content.Substring(0,150)...</p>
+                                }
+                                else
+                                {
+                                    <p>@Model._blogs[i].blog_content</p>
+                                }
+                                <a class="more_btn" href="@Url.Action("Index","Static",new { id= Model._blogs[i].blog_id})">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                } 
+            </div>
+        </div>
+    </div>
+</section>

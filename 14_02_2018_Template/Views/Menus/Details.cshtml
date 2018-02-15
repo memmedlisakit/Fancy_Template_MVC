@@ -1,0 +1,40 @@
+﻿@model _14_02_2018_Template.Models.Menu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <h4>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-warning" })
+        Details Menu
+    </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.menu_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menu_link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_link)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.menu_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_title)
+        </dd>
+
+       
+    </dl>
+</div>

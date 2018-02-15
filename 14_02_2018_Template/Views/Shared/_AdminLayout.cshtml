@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin Panel</title>
+    <!-- Bootstrap core CSS-->
+    <link href="~/Adminpanel/Assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="~/Adminpanel/Assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="~/Adminpanel/Assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Adminpanel/Assets/css/sb-admin.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="/Admin/Index">Fancy Adminpanel</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dropdown Menu">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-sitemap"></i>
+                        <span class="nav-link-text">Dropdown</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseMulti">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                            <a class="nav-link" href="/Sliders/Index">
+                                <i class="fas fa-sliders-h"></i>
+                                <span class="nav-link-text">Slider</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                            <a class="nav-link" href="/Testimonials_Slider/Index">
+                                <i class="fas fa-sliders-h"></i>
+                                <span class="nav-link-text">Testimonials Slider</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                            <a class="nav-link" href="/Menus/Index">
+                                <i class="fas fa-bars"></i>
+                                <span class="nav-link-text">Menu</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blog">
+                    <a class="nav-link" href="/Blogs/Index">
+                        <i class="fab fa-blogger"></i>
+                        <span class="nav-link-text">Blog</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Categories">
+                    <a class="nav-link" href="/Categories/Index">
+                        <i class="fas fa-tags"></i>
+                        <span class="nav-link-text">Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact">
+                    <a class="nav-link" href="/Contacts/Index">
+                        <i class="fas fa-phone"></i>
+                        <span class="nav-link-text">Contact</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Feature Boxs">
+                    <a class="nav-link" href="/Feature_Boxes/Index">
+                   <i class="fas fa-archive"></i>
+                        <span class="nav-link-text">Feature Boxs</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Industries">
+                    <a class="nav-link" href="/Industries/Index">
+                        <i class="fas fa-chart-pie"></i>
+                        <span class="nav-link-text">Industries</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
+                    <a class="nav-link" href="/Messages/Index">
+                        <i class="fas fa-envelope-square"></i>
+                        <span class="nav-link-text">Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Services Back">
+                    <a class="nav-link" href="/Service_Area/Index">
+                        <i class="fas fa-backward"></i>
+                        <span class="nav-link-text">Services Back</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Services">
+                    <a class="nav-link" href="/Service_Area_Contents/Index">
+                        <i class="fas fa-wrench"></i>
+                        <span class="nav-link-text">Services</span>
+                    </a>
+                </li>
+                
+            </ul>
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="@Url.Action("Index","Messages")" >
+                        <i class="fa fa-fw fa-envelope"></i>
+                        <span class="indicator text-primary d-none d-lg-block">
+                            <i class="fa fa-fw fa-circle"></i>
+                        </span>
+                    </a>
+                    
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link"  href="/Admin/Logout">
+                        <i class="fas fa-sign-out-alt"></i>Logout 
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content-wrapper">
+        
+        <!-- /.container-fluid-->
+        <div class="container">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright © Your Website 2018</small>
+                </div>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Adminpanel/Assets/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Adminpanel/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="~/Adminpanel/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="~/Adminpanel/Assets/vendor/chart.js/Chart.min.js"></script>
+        <script src="~/Adminpanel/Assets/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="~/Adminpanel/Assets/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="~/Adminpanel/Assets/js/sb-admin.min.js"></script> 
+        <!-- Custom scripts for this page-->
+        <script src="~/Adminpanel/Assets/js/sb-admin-datatables.min.js"></script>
+        <script src="~/Adminpanel/Assets/js/sb-admin-charts.min.js"></script>
+        <script src="~/Adminpanel/Assets/js/script.js"></script>
+    </div>
+</body>
+
+</html>
+

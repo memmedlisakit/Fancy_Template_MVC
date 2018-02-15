@@ -1,0 +1,70 @@
+﻿@model IEnumerable<_14_02_2018_Template.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ 
+<h2>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info" })
+    Contact
+</h2>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Blog Table
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.contact_phone)</th>
+                        <th>@Html.DisplayNameFor(model => model.contact_email)</th>
+                        <th>@Html.DisplayNameFor(model => model.contact_address)</th>
+                        <th>@Html.DisplayNameFor(model => model.contact_work_time)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.contact_phone)</th>
+                        <th>@Html.DisplayNameFor(model => model.contact_email)</th>
+                        <th>@Html.DisplayNameFor(model => model.contact_address)</th>
+                        <th>@Html.DisplayNameFor(model => model.contact_work_time)</th>
+                        <th>Edit</th>
+                        <th>Details</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.contact_phone</td>
+                            <td> @item.contact_email</td>
+                            <td> @item.contact_address</td>
+                            <td> @item.contact_work_time</td>
+                            <td>
+                                <a href="/Contacts/Edit/@item.contact_id" class="btn btn-warning" style="color:white"><i class="fas fa-pencil-alt"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Contacts/Details/@item.contact_id" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+                            </td>
+                            <td>
+                                <a href="/Contacts/Delete/@item.contact_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+
+
